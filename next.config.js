@@ -6,7 +6,7 @@ const nextConfig = {
 module.exports = {
   nextConfig,
   images: {
-    domains: ['tailwindcss.com'],
+    domains: ['tailwindcss.com','external-content.duckduckgo.com','images.pexels.com'],
   },
   pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
 }

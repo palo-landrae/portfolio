@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { Navbar } from '../components/navbar';
 
 export default function Home() {
@@ -10,7 +11,9 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Navbar />
-      <div>Hello World</div>
+      <div className='w-full h-96 overflow-hidden relative'>
+      <Image src="https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"  width="1260" height="750" layout='responsive' objectFit='cover'/>
+      </div>
     </div>
   );
 }
