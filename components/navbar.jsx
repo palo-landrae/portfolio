@@ -1,9 +1,27 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Navbar = () => {
   const [active, setActive] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(undefined);
+
+  useEffect(() => {
+    if (darkMode !== undefined) {
+      if (darkMode) {
+        document.querySelector("body").classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.querySelector("body").classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      }
+    } else {
+      setDarkMode(false);
+    }
+  }, [darkMode]);
+
+  useEffect(() => {
+    setDarkMode(getInitialColor());
+  }, []);
 
   const handleClick = () => {
     setActive(!active);
@@ -11,11 +29,6 @@ export const Navbar = () => {
 
   const darkToggle = () => {
     setDarkMode(!darkMode);
-    if (!darkMode) {
-      document.querySelector("body").classList.add("dark" || "");
-    } else {
-      document.querySelector("body").classList.remove("dark");
-    }
   };
 
   return (
@@ -93,3 +106,14 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+function getInitialColor() {
+  const persistedPreferenceMode = localStorage.getItem("theme");
+  const hasPersistedPreference = typeof persistedPreferenceMode === "string";
+
+  if (hasPersistedPreference) {
+    return persistedPreferenceMode === 'dark';
+  } else {
+    return false;
+  }
+}
