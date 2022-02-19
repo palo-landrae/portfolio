@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 export const ProjectCards = ({ projects }) => {
   const bgColor = {
@@ -14,7 +13,7 @@ export const ProjectCards = ({ projects }) => {
         {projects.map((project) => {
           return (
             <div className="rounded" key={project.id}>
-              <div className="flex flex-col relative max-w-xs h-72 max-h-72 rounded overflow-hidden shadow-lg my-2 mx-3">
+              <div className="flex flex-col relative max-w-xs h-72 max-h-72 rounded overflow-hidden shadow-lg my-2 mx-3 bg-white dark:bg-stone-600 dark:text-white">
                 <div className={'h-8 ' + bgColor[project.color]}></div>
                 <div className="px-6 py-4">
                   <div className="font-bold text-xl mb-2">{project.title}</div>
