@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { useState } from "react";
+import { useThemeContext } from '../context/theme';
 
 export const Navbar = () => {
   const [active, setActive] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
+  const myThemeContext = useThemeContext();
   const handleClick = () => {
     setActive(!active);
   };
   const darkToggle = () => {
-    setDarkMode(!darkMode);
-    console.log(darkMode);
+    myThemeContext.setTheme(!myThemeContext.theme);
   };
   const btnColor = {
     default: "bg-black",
@@ -17,7 +17,7 @@ export const Navbar = () => {
     Lumos: "text-yellow-200",
   };
   return (
-    <div className={`${darkMode ? "dark" : ""}`}>
+    <div className={`${myThemeContext.theme ? "dark" : ""}`}>
       <nav className="flex items-center flex-wrap p-3 dark:bg-gray-700 bg-neutral-50 dark:text-white text-black">
         <Link href="/">
           <a className="inline-flex items-center p-2 mr-4 ">
@@ -32,7 +32,7 @@ export const Navbar = () => {
           {/* dark mode button*/}
           <button className="flex p-3 justify-center items-center self-end rounded hover:bg-gray-500" onClick={darkToggle}>
             <svg
-              className={`${darkMode ? "hidden" : btnColor["Nox"]} w-6 h-6 fill-current`}
+              className={`${myThemeContext.theme ? "hidden" : btnColor["Nox"]} w-6 h-6 fill-current`}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
             >
@@ -41,7 +41,7 @@ export const Navbar = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              className={`${darkMode ? btnColor["Lumos"] : "hidden"} w-6 h-6 fill-current text-orange`}
+              className={`${myThemeContext.theme ? btnColor["Lumos"] : "hidden"} w-6 h-6 fill-current text-orange`}
             >
               <path d="M120.2 154.2c4.672 4.688 10.83 7.031 16.97 7.031S149.5 158.9 154.2 154.2c9.375-9.375 9.375-24.56 0-33.93L108.9 74.97c-9.344-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94L120.2 154.2zM256 112c13.25 0 24-10.75 24-24v-64C280 10.75 269.3 0 256 0S232 10.75 232 24v64C232 101.3 242.8 112 256 112zM112 256c0-13.25-10.75-24-24-24h-64C10.75 232 0 242.8 0 256s10.75 24 24 24h64C101.3 280 112 269.3 112 256zM374.8 161.2c6.141 0 12.3-2.344 16.97-7.031l45.25-45.28c9.375-9.375 9.375-24.56 0-33.94s-24.59-9.375-33.94 0l-45.25 45.28c-9.375 9.375-9.375 24.56 0 33.93C362.5 158.9 368.7 161.2 374.8 161.2zM256 400c-13.25 0-24 10.75-24 24v64C232 501.3 242.8 512 256 512s24-10.75 24-24v-64C280 410.8 269.3 400 256 400zM120.2 357.8l-45.25 45.28c-9.375 9.375-9.375 24.56 0 33.94c4.688 4.688 10.83 7.031 16.97 7.031s12.3-2.344 16.97-7.031l45.25-45.28c9.375-9.375 9.375-24.56 0-33.93S129.6 348.4 120.2 357.8zM488 232h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64C501.3 280 512 269.3 512 256S501.3 232 488 232zM391.8 357.8c-9.344-9.375-24.56-9.372-33.94 .0031s-9.375 24.56 0 33.93l45.25 45.28c4.672 4.688 10.83 7.031 16.97 7.031s12.28-2.344 16.97-7.031c9.375-9.375 9.375-24.56 0-33.94L391.8 357.8zM256 144C194.1 144 144 194.1 144 256c0 61.86 50.14 112 112 112s112-50.14 112-112C368 194.1 317.9 144 256 144z"></path>
             </svg>
@@ -82,7 +82,7 @@ export const Navbar = () => {
             </Link>
             <button className="flex p-3 justify-center items-center self-end rounded hover:bg-gray-500 hidden lg:block" onClick={darkToggle}>
               <svg
-                className={`${darkMode ? "hidden" : btnColor["Nox"]} w-6 h-6 fill-current`}
+                className={`${myThemeContext.theme ? "hidden" : btnColor["Nox"]} w-6 h-6 fill-current`}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
               >
@@ -91,7 +91,7 @@ export const Navbar = () => {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
-                className={`${darkMode ? btnColor["Lumos"] : "hidden"} w-6 h-6 fill-current text-orange`}
+                className={`${myThemeContext.theme ? btnColor["Lumos"] : "hidden"} w-6 h-6 fill-current text-orange`}
               >
                 <path d="M120.2 154.2c4.672 4.688 10.83 7.031 16.97 7.031S149.5 158.9 154.2 154.2c9.375-9.375 9.375-24.56 0-33.93L108.9 74.97c-9.344-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94L120.2 154.2zM256 112c13.25 0 24-10.75 24-24v-64C280 10.75 269.3 0 256 0S232 10.75 232 24v64C232 101.3 242.8 112 256 112zM112 256c0-13.25-10.75-24-24-24h-64C10.75 232 0 242.8 0 256s10.75 24 24 24h64C101.3 280 112 269.3 112 256zM374.8 161.2c6.141 0 12.3-2.344 16.97-7.031l45.25-45.28c9.375-9.375 9.375-24.56 0-33.94s-24.59-9.375-33.94 0l-45.25 45.28c-9.375 9.375-9.375 24.56 0 33.93C362.5 158.9 368.7 161.2 374.8 161.2zM256 400c-13.25 0-24 10.75-24 24v64C232 501.3 242.8 512 256 512s24-10.75 24-24v-64C280 410.8 269.3 400 256 400zM120.2 357.8l-45.25 45.28c-9.375 9.375-9.375 24.56 0 33.94c4.688 4.688 10.83 7.031 16.97 7.031s12.3-2.344 16.97-7.031l45.25-45.28c9.375-9.375 9.375-24.56 0-33.93S129.6 348.4 120.2 357.8zM488 232h-64c-13.25 0-24 10.75-24 24s10.75 24 24 24h64C501.3 280 512 269.3 512 256S501.3 232 488 232zM391.8 357.8c-9.344-9.375-24.56-9.372-33.94 .0031s-9.375 24.56 0 33.93l45.25 45.28c4.672 4.688 10.83 7.031 16.97 7.031s12.28-2.344 16.97-7.031c9.375-9.375 9.375-24.56 0-33.94L391.8 357.8zM256 144C194.1 144 144 194.1 144 256c0 61.86 50.14 112 112 112s112-50.14 112-112C368 194.1 317.9 144 256 144z"></path>
               </svg>
