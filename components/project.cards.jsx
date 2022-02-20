@@ -1,12 +1,11 @@
-
 export const ProjectCards = ({ projects }) => {
   const bgColor = {
-    default: 'bg-black',
-    'Estrutural': 'bg-green-500',
-    'Investimento': 'bg-blue-500',
-    'Viagens': 'bg-yellow-500',
+    default: "bg-black",
+    Estrutural: "bg-green-500",
+    Investimento: "bg-blue-500",
+    Viagens: "bg-yellow-500",
     // ...
-  }
+  };
   return (
     <div className="flex justify-center items-center py-8">
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -14,7 +13,7 @@ export const ProjectCards = ({ projects }) => {
           return (
             <div className="rounded" key={project.id}>
               <div className="flex flex-col relative max-w-xs h-72 max-h-72 rounded overflow-hidden shadow-lg my-2 mx-3 bg-white dark:bg-stone-600 dark:text-white">
-                <div className={'h-8 ' + bgColor[project.color]}></div>
+                <div className={"h-8 " + bgColor[project.color]}></div>
                 <div className="px-6 py-4">
                   <div className="font-bold text-xl mb-2">{project.title}</div>
                   <p className="text-grey-darker text-base">{project.description}</p>
