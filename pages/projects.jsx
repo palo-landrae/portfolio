@@ -1,5 +1,4 @@
-import { Navbar } from "@/components/navbar";
-import { ProjectCards } from "@/components/project.cards";
+import { ProjectCards } from "@/components/project-cards";
 import { prisma } from "./api/prisma";
 import Head from "next/head";
 
@@ -10,7 +9,7 @@ export default function Projects({ projects }) {
         <title>My Projects</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="dark:bg-gray-800 bg-stone-200 h-full">
+      <div className="dark:bg-midnight bg-stone-200 h-full">
         <ProjectCards projects={projects} />
       </div>
     </div>
