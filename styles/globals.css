@@ -1,13 +1,13 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Montserrat,sans-serif;
+  font-family: 'Indie Flower', sans-serif;
   font-size: 1rem;
   height: 100%;
 }
