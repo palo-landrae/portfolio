@@ -1,8 +1,8 @@
-import { useState, React } from "react";
+import { React } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ThemeButton } from "./theme-changer";
-import { Dropdown } from "./dropdown";
+import { MenuDropdown } from "./menu-dropdown";
 
 export const Navbar = () => {
     const router = useRouter();
@@ -39,9 +39,9 @@ export const Navbar = () => {
                     </a>
                 </Link>
 
-                <div className='flex inline-flex flex-row ml-auto md:hidden'>
+                <div className='flex inline-flex py-1 flex-row ml-auto md:hidden'>
                     <ThemeButton />
-                    <Dropdown show='true' />
+                    <MenuDropdown />
                 </div>
 
                 <div className='hidden md:block md:inline-flex md:flex-row md:ml-auto md:w-auto w-full md:items-center items-start flex flex-col md:h-auto'>

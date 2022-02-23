@@ -27,7 +27,7 @@ export const ThemeButton = ({ show }) => {
 
   return (
     <button
-      className={`flex p-3 justify-center items-center self-end rounded hover:bg-neutral-300 dark:hover:bg-gray-600 ${show ? "hidden" : ""}`}
+      className={`flex p-2 justify-center items-center self-end rounded hover:bg-neutral-300 dark:hover:bg-gray-600 ${show ? "hidden" : ""}`}
       onClick={darkToggle}
     >
       <svg className="dark:hidden w-6 h-6 text-moon fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
