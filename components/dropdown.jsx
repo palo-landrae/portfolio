@@ -29,7 +29,7 @@ export const Dropdown = ({ show }) => {
         },
         {
             href: "/about",
-            tabContent: "About Me",
+            tabContent: "About",
         },
         {
             href: "/resume",
@@ -65,14 +65,17 @@ export const Dropdown = ({ show }) => {
                             ref={popoverDropdownRef}
                             className={
                                 (dropdownPopoverShow ? "block " : "hidden ") +
-                                "bg-midnight text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1 min-w-48"
+                                "dark:bg-midnight dark:text-white bg-dawn text-midnight z-50 float-left py-2 px-8 list-none text-left rounded shadow-lg mt-1 min-w-48"
                             }>
                             {menuData.map((menu) => (
                                 <Link key={menu.href} href={menu.href}>
                                     <a
                                         className={(router.pathname === menu.href ? "underline underline-offset-4" : "") +
-                                            "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white"
-                                        }>
+                                            "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap"
+                                        }
+                                        onClick={() => {
+                                            dropdownPopoverShow ? closeDropdownPopover() : "";
+                                        }}>
                                         {menu.tabContent}
                                     </a>
                                 </Link>

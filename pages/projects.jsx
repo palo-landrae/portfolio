@@ -4,12 +4,12 @@ import Head from "next/head";
 
 export default function Projects({ projects }) {
   return (
-    <div className="h-max lg:h-full">
+    <div className="h-max lg:h-full border-b-0 border-transparent">
       <Head>
         <title>My Projects</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="dark:bg-midnight bg-stone-200 h-full">
+      <div className="dark:bg-midnight bg-dawn h-full border-b-0 border-transparent">
         <ProjectCards projects={projects} />
       </div>
     </div>

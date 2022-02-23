@@ -1,13 +1,13 @@
 export const Footer = () => {
     return (
         <>
-            <center className='text-center bg-midnight text-white'>
-                <div className='container px-6 pt-6'>
+            <center className='text-center dark:bg-midnight bg-dawn dark:text-white text-midnight border-0 border-transparent'>
+                <div className='container px-6 pt-6 border-transparent mx-auto'>
                     <div className='flex justify-center mb-6'>
                         <a
                             href='#!'
                             type='button'
-                            className='rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1'>
+                            className='rounded-full border-2 dark:border-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1'>
                             <svg
                                 aria-hidden='true'
                                 focusable='false'
@@ -24,9 +24,9 @@ export const Footer = () => {
                         </a>
 
                         <a
-                            href='#!'
+                            href=''
                             type='button'
-                            className='rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1'>
+                            className='rounded-full border-2 dark:border-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1'>
                             <svg
                                 aria-hidden='true'
                                 focusable='false'
@@ -45,7 +45,7 @@ export const Footer = () => {
                         <a
                             href='#!'
                             type='button'
-                            className='rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1'>
+                            className='rounded-full border-2 dark:border-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1'>
                             <svg
                                 aria-hidden='true'
                                 focusable='false'
@@ -64,9 +64,8 @@ export const Footer = () => {
                         <a
                             href='https://github.com/palo-landrae'
                             target='_blank'
-                            rel="noreferrer"
                             type='button'
-                            className='rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1'>
+                            className='rounded-full border-2 dark:border-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1'>
                             <svg
                                 aria-hidden='true'
                                 focusable='false'
@@ -84,11 +83,8 @@ export const Footer = () => {
                     </div>
                 </div>
 
-                <div className='flex flex-row justify-center text-center p-4'>
-                    <p>© 2022 Copyright: </p>
-                    <a className='text-white ml-2'>
-                        <span>palo-landrae</span>
-                    </a>
+                <div className='flex flex-row justify-center text-center p-4 capitalize'>
+                    <p>© 2022 Palo Landrae: All rights reserved.</p>
                 </div>
             </center>
         </>
