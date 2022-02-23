@@ -25,13 +25,20 @@ export const MenuDropdown = () => {
     return (
         <Menu>
             <MenuButton as={IconButton} icon={<HamburgerIcon />} variant='outline' aria-label='Options' />
-            <MenuList className="dark:bg-midnight">
+            <MenuList className='dark:bg-midnight'>
                 {menuData.map((menu) => (
                     <NextLink key={menu.href} href={menu.href} passHref>
                         <MenuItem
-                            as={Link}
-                            >
-                            <span className={router.pathname === menu.href ? "underline underline-offset-4" : ""}>{menu.tabContent}</span>
+                            sx={{
+                                ":focus:not(:focus-visible)": {
+                                    boxShadow: "none !important",
+                                    backgroundColor: "transparent !important",
+                                },
+                            }}
+                            as={Link}>
+                            <span className={router.pathname === menu.href ? "underline underline-offset-4" : ""}>
+                                {menu.tabContent}
+                            </span>
                         </MenuItem>
                     </NextLink>
                 ))}
