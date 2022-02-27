@@ -1,28 +1,30 @@
 import { ProjectCards } from "@/components/project-cards";
 import { prisma } from "./api/prisma";
 import Head from "next/head";
+import { Layout } from "@/components/layout";
+import { Box } from '@chakra-ui/react'
 
 export default function Projects({ projects }) {
-  return (
-    <div className="h-max lg:h-full border-b-0 border-transparent">
-      <Head>
-        <title>My Projects</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="dark:bg-midnight bg-dawn h-full border-b-0 border-transparent">
-        <ProjectCards projects={projects} />
-      </div>
-    </div>
-  );
+    return (
+        <Layout>
+            <Head>
+                <title>My Projects</title>
+                <link rel='icon' href='/favicon.ico' />
+            </Head>
+            <Box className="">
+                <ProjectCards projects={projects} />
+            </Box>
+        </Layout>
+    );
 }
 
 export async function getStaticProps() {
-  const projects = await prisma.projects.findMany();
+    const projects = await prisma.projects.findMany();
 
-  return {
-    props: {
-      projects,
-    },
-    revalidate: 30,
-  };
+    return {
+        props: {
+            projects,
+        },
+        revalidate: 30,
+    };
 }

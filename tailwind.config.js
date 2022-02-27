@@ -3,6 +3,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  important: true,
   darkMode: 'class',
   theme: {
     colors: {
@@ -10,13 +11,13 @@ module.exports = {
       current: 'currentColor',
       'white': '#ffffff',
       'midnight': '#02111b',
-      'dawn': '#E8EBE4',
+      'dawn': '#e8ebe4',
       'dawn-text': '#2F0601',
-      'dawn-nav': '#D7907B',
+      'dawn-nav': 'rgba(250,251,249, 0.25)',
       'dawn-title': '#280003',
       'dawn-highlight': '',
       'dawn-components': '#6E7E85',
-      'metal': '#3f4045',
+      'metal': '#3f404580',
       'dark-oak': '#30292f',
       'blue-gum': '#5d737e',
       'lavander-blush': '#F3E8EE',
@@ -27,6 +28,24 @@ module.exports = {
       'sun': '#FFE787',
       'moon': '#292F36'
     },
+    screens: {
+      '2xsm': '320px',
+      'xsm' : '375px',
+      'sm': '425px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+    }
   },
   plugins: [],
 }
