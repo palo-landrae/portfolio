@@ -26,7 +26,7 @@ export const Navbar = () => {
     ];
 
     return (
-        <nav className='flex fixed z-10 w-full items-center justify-between flex-wrap p-3 dark:bg-metal bg-dawn-nav dark:text-white text-dawn-text overflow-x-clip' >
+        <nav className='flex fixed z-10 backdrop-blur-md w-full items-center justify-between flex-wrap p-3 dark:bg-metal bg-dawn-nav dark:text-white text-dawn-text overflow-x-clip' >
             <div className='mx-auto flex inline-flex max-w-screen-lg'>
                 <Link href='/'>
                     <a className='inline-flex items-center p-2 2xsm:mr-8 xsm:mr-20 md:mr-32'>

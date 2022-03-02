@@ -20,7 +20,7 @@ export const ProjectCards = ({ projects }) => {
                 </div>
                 <div className="flex flex-row w-full justify-end px-2 absolute bottom-0">
                   <a target="_blank" href={project.demo} rel="noopener noreferrer">
-                    <button className="my-4 mx-1 h-10 w-20 focus:ring-2 focus:ring-offset-2 rounded-md focus:ring-indigo-600 transition duration-150 ease-in-out hover:bg-indigo-600 focus:outline-none bg-maximum-red rounded-r text-white px-5 text-md">
+                    <button className="my-4 mx-1 h-10 w-24 focus:ring-2 focus:ring-offset-2 rounded-md focus:ring-indigo-600 transition duration-150 ease-in-out hover:bg-indigo-600 focus:outline-none bg-maximum-red rounded-r text-white px-5 text-md">
                       Demo
                     </button>
                   </a>

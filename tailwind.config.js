@@ -11,9 +11,9 @@ module.exports = {
       current: 'currentColor',
       'white': '#ffffff',
       'midnight': '#02111b',
-      'dawn': '#e8ebe4',
+      'dawn': 'rgb(255, 251, 238)',
       'dawn-text': '#2F0601',
-      'dawn-nav': 'rgba(250,251,249, 0.25)',
+      'dawn-nav': 'rgba(255,255,255, 0.25)',
       'dawn-title': '#280003',
       'dawn-highlight': '',
       'dawn-components': '#6E7E85',
@@ -46,6 +46,11 @@ module.exports = {
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
     }
+  },
+  fontFamily: {
+    html: [
+      'M PLUS Rounded 1c'
+    ],
   },
   plugins: [],
 }

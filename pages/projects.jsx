@@ -3,6 +3,7 @@ import { prisma } from "./api/prisma";
 import Head from "next/head";
 import { Layout } from "@/components/layout";
 import { Box } from '@chakra-ui/react'
+import { Cards } from "@/components/cards";
 
 export default function Projects({ projects }) {
     return (
@@ -12,7 +13,7 @@ export default function Projects({ projects }) {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Box className="">
-                <ProjectCards projects={projects} />
+                <Cards projects={projects} />
             </Box>
         </Layout>
     );

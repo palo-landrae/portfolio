@@ -24,7 +24,7 @@ export const MenuDropdown = () => {
     ];
     return (
         <Menu>
-            <MenuButton as={IconButton} icon={<HamburgerIcon />} variant='outline' aria-label='Options' />
+            <MenuButton borderColor={'blackAlpha.500'} color='black' as={IconButton} icon={<HamburgerIcon />} variant='outline' aria-label='Options'/>
             <MenuList className='dark:bg-midnight bg-dawn'>
                 {menuData.map((menu) => (
                     <NextLink key={menu.href} href={menu.href} passHref>
