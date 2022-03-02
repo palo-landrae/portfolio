@@ -7,11 +7,7 @@ import { Cards } from "@/components/cards";
 
 export default function Projects({ projects }) {
     return (
-        <Layout>
-            <Head>
-                <title>My Projects</title>
-                <link rel='icon' href='/favicon.ico' />
-            </Head>
+        <Layout title={'Works'}>
             <Box className="">
                 <Cards projects={projects} />
             </Box>

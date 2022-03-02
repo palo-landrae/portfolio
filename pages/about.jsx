@@ -1,8 +1,8 @@
 import { Layout } from "@/components/layout";
 
-export default function Resume() {
+export default function About() {
     return (
-        <Layout title={'Resume'}>
+        <Layout title={'About'}>
         </Layout>
     );
 }
