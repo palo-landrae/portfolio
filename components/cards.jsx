@@ -6,7 +6,7 @@ export const Cards = ({ projects }) => {
         <SimpleGrid mx='auto' mt={10} px={10} minChildWidth={238} spacingX={8} spacingY={6}>
             {projects.map((project) => {
                 return (
-                    <Box mx='auto' w={256} borderWidth='1px' borderRadius='lg' overflow='hidden' bg='teal.800'>
+                    <Box key={project.id} mx='auto' w={256} borderWidth='1px' borderRadius='lg' overflow='hidden' bg='teal.800'>
                         <Box p='6'>
                             <Box display='flex' alignItems='baseline'>
                                 <Box
