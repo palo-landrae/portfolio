@@ -2,7 +2,7 @@ import { Avatar, Box, Heading, Flex, Container, Text, Img } from "@chakra-ui/rea
 import "@fontsource/m-plus-rounded-1c/400.css";
 export const Profile = () => {
     return (
-        <Container maxW='container.md'>
+        <Container maxW='container.md' mx='auto'>
             <Box display={{ md: "flex" }} className='md:mx-20'>
                 <Box flexGrow={1}>
                     <Heading>Palo Loui Andrae</Heading>
@@ -27,6 +27,12 @@ export const Profile = () => {
                         />
                     </Box>
                 </Box>
+            </Box>
+            <Box>
+              <Box>
+                <Heading>Bio</Heading>
+                
+              </Box>
             </Box>
         </Container>
     );

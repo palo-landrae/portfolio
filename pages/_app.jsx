@@ -1,15 +1,14 @@
 import "../styles/globals.css";
-import { ChakraProvider } from "@chakra-ui/react";
-import theme from "../lib/theme";
 import Fonts from "@/components/font";
+import { Chakra } from "../lib/Chakra";
 
 function MyApp({ Component, pageProps }) {
-    return (
-        <ChakraProvider theme={theme}>
-            <Fonts />
-            <Component {...pageProps} />
-        </ChakraProvider>
-    );
+  return (
+    <Chakra cookies={pageProps.cookies}>
+      <Fonts />
+      <Component {...pageProps} />
+    </Chakra>
+  );
 }
 
 export default MyApp;
