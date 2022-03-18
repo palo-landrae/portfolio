@@ -15,7 +15,7 @@ import {
 const Footer = () => {
   return (
     <Box
-      bg={useColorModeValue("gray.100", "#141214")}
+      bg={useColorModeValue("#FAF8F8", "#141214")}
       color={useColorModeValue("gray.800", "whiteAlpha.900")}
     >
       <Container

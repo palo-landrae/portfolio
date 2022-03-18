@@ -1,22 +1,10 @@
-import {
-  Avatar,
-  Box,
-  Heading,
-  Flex,
-  Container,
-  Text,
-  Img,
-} from "@chakra-ui/react";
-import "@fontsource/m-plus-rounded-1c/400.css";
-import { useColorModeValue } from "@chakra-ui/color-mode";
+import { Box, Heading, Container, Img } from "@chakra-ui/react";
+import { BioSection, BioYear } from "@/components/bio";
 
 export const Profile = () => {
-  const bg = useColorModeValue("white", "gray.900");
-  const color = useColorModeValue("black", "white");
-
   return (
     <Container maxW="container.md" mx="auto">
-      <Box display={{ md: "flex" }} className="md:mx-20">
+      <Box display={{ md: "flex" }} mx={{ md: 6 }}>
         <Box flexGrow={1}>
           <Heading>Palo Loui Andrae</Heading>
           <p>Full Stack Web Developer, Gamer, Musician</p>
@@ -24,7 +12,7 @@ export const Profile = () => {
         <Box
           flexShrink={0}
           mt={{ base: 4, md: 0 }}
-          ml={{ md: 6 }}
+          mx={{ md: 6 }}
           textAlign="center"
         >
           <Box
@@ -47,10 +35,23 @@ export const Profile = () => {
           </Box>
         </Box>
       </Box>
-      <Box>
+      <Box mx={{ md: 6 }}>
         <Box>
           <Heading>Bio</Heading>
         </Box>
+        <BioSection>
+          <BioYear>2022</BioYear>
+          Diploma in Information Technology in Istituto di Istruzione Superiore
+          Luigi Galvani, Milan
+        </BioSection>
+        <BioSection>
+          <BioYear>2021</BioYear>
+          Corso Forma.Temp in Ricerca Attiva Lavoro, Randstad Spa
+        </BioSection>
+        <BioSection>
+          <BioYear>2002</BioYear>
+          Born in Talisay, Philippines
+        </BioSection>
       </Box>
     </Container>
   );
