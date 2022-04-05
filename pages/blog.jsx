@@ -1,6 +1,13 @@
 import { prisma } from "./api/prisma";
 import { Layout } from "@/components/layout";
-import { Box, Center, Text, useColorModeValue } from "@chakra-ui/react";
+import {
+  Spacer,
+  Flex,
+  Box,
+  Center,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
@@ -29,17 +36,21 @@ const CodeBlock = ({ node, inline, className, children, ...props }) => {
 export default function Blog({ markdowns }) {
   return (
     <Layout title={"Blog"}>
-      <Box mx={"auto"} p={6} rounded={"md"} className="markdown">
-        {markdowns.map((blog) => {
-          return (
-            <div className="markdown-body" key={blog.id}>
-              <ReactMarkdown components={{ code: CodeBlock }}>
-                {blog.contents}
-              </ReactMarkdown>
-            </div>
-          );
-        })}
-      </Box>
+      <Flex>
+        <Spacer />
+        <Box maxW="3xl" p={6} rounded={"md"} className="markdown">
+          {markdowns.map((blog) => {
+            return (
+              <Flex w="100%" direction={"column"} key={blog.id}>
+                <ReactMarkdown components={{ code: CodeBlock }}>
+                  {blog.contents}
+                </ReactMarkdown>
+              </Flex>
+            );
+          })}
+        </Box>
+        <Spacer />
+      </Flex>
     </Layout>
   );
 }

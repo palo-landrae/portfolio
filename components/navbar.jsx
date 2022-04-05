@@ -3,7 +3,15 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { MenuDropdown } from "./menu-dropdown";
 import { useColorModeValue } from "@chakra-ui/color-mode";
-import { Box, HStack, VStack, Link, Heading, Text } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  HStack,
+  VStack,
+  Link,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
 import ColorModeToggle from "./color-toggle.tsx";
 
 export const Navbar = () => {
@@ -26,7 +34,7 @@ export const Navbar = () => {
   const color = useColorModeValue("black", "white");
 
   return (
-    <Box as="nav" bg={bg} color={color} py={2}>
+    <Flex as="nav" bg={bg} color={color} py={2} justify="center">
       <VStack>
         <NextLink href="/" passHref>
           <Link>
@@ -42,6 +50,6 @@ export const Navbar = () => {
           <ColorModeToggle />
         </HStack>
       </VStack>
-    </Box>
+    </Flex>
   );
 };
