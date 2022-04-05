@@ -24,7 +24,7 @@ export default function Home() {
         mx="auto"
       >
         <Box maxW={"sm"} h="auto" mx="auto">
-          <Image borderRadius="sm" src="/images/me-tokyo.jpg" />
+          <Image alt="me-tokyo" borderRadius="sm" src="/images/me-tokyo.jpg" />
         </Box>
         <Spacer minW={4} />
         <VStack align="flex-start" mx={"auto"} maxW={96} mb={4}>
@@ -48,13 +48,17 @@ export default function Home() {
           <WrapItem>
             <Box maxW={"xs"} h={"auto"} textAlign={"center"}>
               <Text>SDG14</Text>
-              <Image borderRadius="sm" src="/images/sdg14.png" />
+              <Image alt="work1" borderRadius="sm" src="/images/sdg14.png" />
             </Box>
           </WrapItem>
           <WrapItem>
             <Box maxW={"xs"} h={"auto"} textAlign={"center"}>
               <Text>Cycle Path Finder</Text>
-              <Image borderRadius="sm" src="/images/cycle-path-finder.png" />
+              <Image
+                alt="work2"
+                borderRadius="sm"
+                src="/images/cycle-path-finder.png"
+              />
             </Box>
           </WrapItem>
         </Wrap>

@@ -10,16 +10,19 @@ import {
   oneLight,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-const CodeBlock = ({ node, inline, className, ...props }) => {
+const CodeBlock = ({ node, inline, className, children, ...props }) => {
   const match = /language-(\w+)/.exec(className || "");
+  const highlightStyle = useColorModeValue(oneLight, materialDark);
   return !inline && match ? (
     <SyntaxHighlighter
       language={match[1]}
-      style={useColorModeValue(oneLight, materialDark)}
+      style={highlightStyle}
       PreTag="div"
       className="codeStyle"
       {...props}
-    />
+    >
+      {children}
+    </SyntaxHighlighter>
   ) : (
     <code className={className} {...props} />
   );
@@ -31,7 +34,7 @@ export default function Blog({ markdowns }) {
       <Box mx={"auto"} p={6} rounded={"md"} className="markdown">
         {markdowns.map((blog) => {
           return (
-            <div className="markdown-body">
+            <div className="markdown-body" key={blog.id}>
               <ReactMarkdown
                 children={blog.contents}
                 components={{ code: CodeBlock }}
