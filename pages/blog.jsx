@@ -1,12 +1,10 @@
 import { prisma } from "./api/prisma";
 import { Layout } from "@/components/layout";
 import { Box, Center, Text, useColorModeValue } from "@chakra-ui/react";
-import { marked } from "marked";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   materialDark,
-  materialLight,
   oneLight,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
