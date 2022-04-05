@@ -1,65 +1,76 @@
 import { prisma } from "./api/prisma";
 import { Layout } from "@/components/layout";
+import NextLink from "next/link";
 import {
-  Spacer,
   Flex,
+  Image,
   Box,
   Center,
   Text,
   useColorModeValue,
+  SimpleGrid,
+  Heading,
+  Button,
+  Link,
 } from "@chakra-ui/react";
-import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  materialDark,
-  oneLight,
-} from "react-syntax-highlighter/dist/cjs/styles/prism";
+import moment from "moment";
 
-const CodeBlock = ({ node, inline, className, children, ...props }) => {
-  const match = /language-(\w+)/.exec(className || "");
-  const highlightStyle = useColorModeValue(oneLight, materialDark);
-  return !inline && match ? (
-    <SyntaxHighlighter
-      language={match[1]}
-      style={highlightStyle}
-      PreTag="div"
-      className="codeStyle"
-      {...props}
-    >
-      {children}
-    </SyntaxHighlighter>
-  ) : (
-    <code className={className} {...props} />
-  );
-};
+export default function Blog({ posts }) {
+  const bg = useColorModeValue("white", "#211e21");
+  const color = useColorModeValue("black", "white");
 
-export default function Blog({ markdowns }) {
   return (
     <Layout title={"Blog"}>
-      <Flex>
-        <Spacer />
-        <Box maxW="3xl" p={6} rounded={"md"} className="markdown">
-          {markdowns.map((blog) => {
-            return (
-              <Flex w="100%" direction={"column"} key={blog.id}>
-                <ReactMarkdown components={{ code: CodeBlock }}>
-                  {blog.contents}
-                </ReactMarkdown>
-              </Flex>
-            );
-          })}
-        </Box>
-        <Spacer />
-      </Flex>
+      <SimpleGrid mx="auto">
+        {posts.map((post) => {
+          return (
+            <Box
+              key={post.id}
+              w={"xs"}
+              bg={bg}
+              color={color}
+              shadow={"lg"}
+              borderRadius={6}
+            >
+              <Image w={"xs"} h={214} borderTopRadius={6} src={post.img} />
+              <Box px={4} py={2}>
+                <Text fontSize="sm" py={2}>
+                  Posted on {moment(post.date).format("LL")}
+                </Text>
+                <Text as="samp" fontSize="lg" mb={2}>
+                  {post.title}
+                </Text>
+                <Text noOfLines={2}>{post.description}</Text>
+                <NextLink href={`/blog/${post.slug}`} passHref>
+                  <Link>
+                    <Button bg="blue.200" my={1}>
+                      Read More
+                    </Button>
+                  </Link>
+                </NextLink>
+              </Box>
+            </Box>
+          );
+        })}
+      </SimpleGrid>
     </Layout>
   );
 }
 
 export async function getStaticProps() {
-  const markdowns = await prisma.markdowns.findMany();
+  const posts = await prisma.blog.findMany({
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      img: true,
+      date: true,
+      slug: true,
+    },
+  });
   return {
     props: {
-      markdowns,
+      posts: JSON.parse(JSON.stringify(posts)),
     },
     revalidate: 30,
   };

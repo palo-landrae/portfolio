@@ -8,10 +8,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model markdowns {
-  id        String @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  contents  String
-  file_name String
+model blog {
+  id          String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  content     String
+  date        DateTime @db.Date
+  description String
+  file_name   String
+  img         String
+  slug        String
+  title       String
 }
 
 model projects {

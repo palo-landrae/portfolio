@@ -48,7 +48,7 @@ export default function Home() {
           <WrapItem>
             <Box maxW={"xs"} h={"auto"} textAlign={"center"}>
               <Text>SDG14</Text>
-              <Image alt="work1" borderRadius="sm" src="/images/sdg14.png" />
+              <Image alt="work1" borderRadius="sm" src="/images/sdg14.PNG" />
             </Box>
           </WrapItem>
           <WrapItem>
