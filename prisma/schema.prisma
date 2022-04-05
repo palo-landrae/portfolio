@@ -8,6 +8,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model markdowns {
+  id        String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  contents  String
+  file_name String
+}
+
 model projects {
   id          String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   color       String

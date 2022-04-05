@@ -11,7 +11,7 @@ export const Layout = ({ children, title }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <Flex pt={24} direction="column">
+      <Flex py={12} direction="column">
         {children}
       </Flex>
       <Spacer />
