@@ -15,7 +15,7 @@ model blog {
   description String
   file_name   String
   img         String
-  slug        String
+  slug        String @unique
   title       String
 }
 

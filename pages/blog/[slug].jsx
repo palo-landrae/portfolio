@@ -1,12 +1,23 @@
 import { prisma } from "../api/prisma";
 import { Layout } from "@/components/layout";
-import { Flex, Box, Center, Text, useColorModeValue } from "@chakra-ui/react";
+import {
+  Flex,
+  Image,
+  Box,
+  Center,
+  Text,
+  useColorModeValue,
+  HStack,
+  VStack,
+  Avatar,
+} from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   materialDark,
   oneLight,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import moment from "moment";
 
 const CodeBlock = ({ node, inline, className, children, ...props }) => {
   const match = /language-(\w+)/.exec(className || "");
@@ -26,27 +37,45 @@ const CodeBlock = ({ node, inline, className, children, ...props }) => {
   );
 };
 
-const Post = ({ posts }) => {
+const Post = ({ post }) => {
   return (
     <Layout title={"Blog"}>
-      {posts.map((post) => {
-        return (
+      {post ? (
+        <>
           <Flex
             alignSelf={"center"}
             rounded={"md"}
             w="100%"
             maxW="3xl"
             direction={"column"}
-            p={6}
             className="markdown"
             key={post.id}
           >
-            <ReactMarkdown components={{ code: CodeBlock }}>
-              {post.content}
-            </ReactMarkdown>
+            <Image
+              h={60}
+              objectFit="cover"
+              borderTopRadius={"md"}
+              src={post.img}
+            />
+            <Box p={6}>
+              <HStack>
+                <Avatar name="palo-landrae" src="/profile.jpg" size="md" />
+                <VStack spacing={0} align="start" py={4}>
+                  <Text fontWeight="bold">palo-landrae</Text>
+                  <Text fontSize="xs">
+                    Posted on {moment(post.date).format("LL")}
+                  </Text>
+                </VStack>
+              </HStack>
+              <ReactMarkdown components={{ code: CodeBlock }}>
+                {post.content}
+              </ReactMarkdown>
+            </Box>
           </Flex>
-        );
-      })}
+        </>
+      ) : (
+        <Center>Loading...</Center>
+      )}
     </Layout>
   );
 };
@@ -72,9 +101,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: slug }) {
-  const posts = await prisma.blog.findMany({
+  const post = await prisma.blog.findUnique({
     where: {
-      slug: { equals: slug.slug },
+      slug: slug.slug,
     },
     select: {
       id: true,
@@ -87,7 +116,7 @@ export async function getStaticProps({ params: slug }) {
   });
   return {
     props: {
-      posts: JSON.parse(JSON.stringify(posts)),
+      post: JSON.parse(JSON.stringify(post)),
     },
     revalidate: 30,
   };
