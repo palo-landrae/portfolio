@@ -35,10 +35,9 @@ export default function Blog({ markdowns }) {
         {markdowns.map((blog) => {
           return (
             <div className="markdown-body" key={blog.id}>
-              <ReactMarkdown
-                children={blog.contents}
-                components={{ code: CodeBlock }}
-              />
+              <ReactMarkdown components={{ code: CodeBlock }}>
+                {blog.contents}
+              </ReactMarkdown>
             </div>
           );
         })}
