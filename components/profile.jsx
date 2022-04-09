@@ -27,7 +27,7 @@ export const Profile = () => {
           >
             <Img
               borderRadius="full"
-              src="/profile.jpg"
+              src="/images/profile.jpg"
               alt="Profile Picture"
               width="100%"
               height="100%"
