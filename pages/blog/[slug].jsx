@@ -10,6 +10,8 @@ import {
   HStack,
   VStack,
   Avatar,
+  Spacer,
+  Button,
 } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -18,6 +20,8 @@ import {
   oneLight,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import moment from "moment";
+import { LikeButton } from "@lyket/react";
+import { TwitterHeart, TwitterHeartEmpty } from "@/components/icons";
 
 const CodeBlock = ({ node, inline, className, children, ...props }) => {
   const match = /language-(\w+)/.exec(className || "");
@@ -66,6 +70,27 @@ const Post = ({ post }) => {
                     Posted on {moment(post.date).format("LL")}
                   </Text>
                 </VStack>
+                <Spacer />
+                <LikeButton id={post.slug} namespace="my-blog">
+                  {({ handlePress, totalLikes, userLiked, isLoading }) => (
+                    <>
+                      <Button
+                        onClick={handlePress}
+                        disabled={isLoading}
+                        bg="transparent"
+                        leftIcon={
+                          userLiked ? (
+                            <TwitterHeart w={6} h={6} />
+                          ) : (
+                            <TwitterHeartEmpty w={6} h={6} />
+                          )
+                        }
+                      >
+                        {totalLikes}
+                      </Button>
+                    </>
+                  )}
+                </LikeButton>
               </HStack>
               <ReactMarkdown components={{ code: CodeBlock }}>
                 {post.content}
@@ -112,12 +137,13 @@ export async function getStaticProps({ params: slug }) {
       img: true,
       date: true,
       content: true,
+      slug: true,
     },
   });
   return {
     props: {
       post: JSON.parse(JSON.stringify(post)),
     },
-    revalidate: 30,
+    revalidate: 90,
   };
 }
