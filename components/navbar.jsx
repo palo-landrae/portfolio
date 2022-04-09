@@ -38,7 +38,7 @@ export const Navbar = () => {
       <VStack>
         <NextLink href="/" passHref>
           <Link>
-            <Heading>Palo Loui Andrae</Heading>
+            <Heading fontWeight="normal">Palo Loui Andrae</Heading>
           </Link>
         </NextLink>
         <HStack>
