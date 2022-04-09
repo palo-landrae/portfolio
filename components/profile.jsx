@@ -41,7 +41,7 @@ export const Profile = () => {
         </Box>
         <BioSection>
           <BioYear>2022</BioYear>
-          Diploma in Information Technology in Istituto di Istruzione Superiore
+          Diploma in Information Technology at Istituto di Istruzione Superiore
           Luigi Galvani, Milan
         </BioSection>
         <BioSection>
