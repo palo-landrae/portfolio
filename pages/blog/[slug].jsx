@@ -16,8 +16,8 @@ import {
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
-  materialDark,
-  oneLight,
+  oneDark,
+  coldarkDark,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import moment from "moment";
 import { LikeButton } from "@lyket/react";
@@ -25,7 +25,7 @@ import { TwitterHeart, TwitterHeartEmpty } from "@/components/icons";
 
 const CodeBlock = ({ node, inline, className, children, ...props }) => {
   const match = /language-(\w+)/.exec(className || "");
-  const highlightStyle = useColorModeValue(oneLight, materialDark);
+  const highlightStyle = useColorModeValue(coldarkDark, oneDark);
   return !inline && match ? (
     <SyntaxHighlighter
       language={match[1]}

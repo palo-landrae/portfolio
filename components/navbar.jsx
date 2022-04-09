@@ -1,21 +1,10 @@
 import { React } from "react";
 import NextLink from "next/link";
-import { useRouter } from "next/router";
-import { MenuDropdown } from "./menu-dropdown";
 import { useColorModeValue } from "@chakra-ui/color-mode";
-import {
-  Flex,
-  Box,
-  HStack,
-  VStack,
-  Link,
-  Heading,
-  Text,
-} from "@chakra-ui/react";
+import { Flex, HStack, VStack, Link, Heading, Text } from "@chakra-ui/react";
 import ColorModeToggle from "./color-toggle.tsx";
 
 export const Navbar = () => {
-  const router = useRouter();
   const menuData = [
     {
       href: "/projects",

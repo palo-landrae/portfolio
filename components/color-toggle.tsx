@@ -10,7 +10,7 @@ export default function ColorModeToggle() {
       color={color}
       mx={1}
       bg={"transparent"}
-      aria-label="Toggle Mode"
+      aria-label="toggle theme color"
       onClick={toggleColorMode}
     >
       {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
