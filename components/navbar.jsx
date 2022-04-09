@@ -26,7 +26,7 @@ export const Navbar = () => {
     <Flex as="nav" bg={bg} color={color} py={2} justify="center">
       <VStack>
         <NextLink href="/" passHref>
-          <Link>
+          <Link className="nav-title">
             <Heading fontWeight="normal">Palo Loui Andrae</Heading>
           </Link>
         </NextLink>
