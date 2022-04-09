@@ -12,8 +12,12 @@ import {
   Heading,
   Button,
   Link,
+  HStack,
+  Spacer,
 } from "@chakra-ui/react";
 import moment from "moment";
+import { LikeButton } from "@lyket/react";
+import { TwitterHeartEmpty } from "@/components/icons";
 
 export default function Blog({ posts }) {
   const bg = useColorModeValue("white", "#211e21");
@@ -34,9 +38,20 @@ export default function Blog({ posts }) {
             >
               <Image w={"xs"} h={214} borderTopRadius={6} src={post.img} />
               <Box px={4} py={2}>
-                <Text fontSize="sm" py={2}>
-                  Posted on {moment(post.date).format("LL")}
-                </Text>
+                <HStack>
+                  <Text fontSize="sm" py={2}>
+                    Posted on {moment(post.date).format("LL")}
+                  </Text>
+                  <Spacer />
+                  <LikeButton id={post.slug} namespace="my-blog">
+                    {({ totalLikes }) => (
+                      <HStack>
+                        <Text fontSize="sm">{totalLikes}</Text>
+                        <TwitterHeartEmpty w={4} h={4} />
+                      </HStack>
+                    )}
+                  </LikeButton>
+                </HStack>
                 <Text as="samp" fontSize="lg" mb={2}>
                   {post.title}
                 </Text>
