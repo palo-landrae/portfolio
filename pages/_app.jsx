@@ -1,5 +1,5 @@
-import Fonts from "@/components/font";
 import "../styles/globals.css";
+import Fonts from "@/components/font";
 import { Chakra } from "../lib/Chakra";
 import { Provider } from "@lyket/react";
 
