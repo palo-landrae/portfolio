@@ -12,6 +12,7 @@ import {
   Avatar,
   Spacer,
   Button,
+  Img,
 } from "@chakra-ui/react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -63,7 +64,13 @@ const Post = ({ post }) => {
             />
             <Box p={6}>
               <HStack>
-                <Avatar name="palo-landrae" src="/profile.jpg" size="md" />
+                <Img
+                  borderRadius="full"
+                  src="/images/profile.jpg"
+                  alt="profile picture"
+                  w={12}
+                  h={12}
+                />
                 <VStack spacing={0} align="start" py={4}>
                   <Text fontWeight="bold">palo-landrae</Text>
                   <Text fontSize="xs">
